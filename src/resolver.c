@@ -20,6 +20,7 @@
 #include "config.h"
 #include "resolver.h"
 
+#define __USE_POSIX
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
