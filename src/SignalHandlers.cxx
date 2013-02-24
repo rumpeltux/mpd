@@ -20,7 +20,12 @@
 #include "config.h"
 #include "SignalHandlers.hxx"
 
-#ifndef WIN32
+#define SIGACTION (_POSIX_C_SOURCE >= 1 || _XOPEN_SOURCE || _POSIX_SOURCE)
+#ifdef WIN32
+#  undef SIGACTION
+#endif
+
+#if SIGACTION
 
 #include "Log.hxx"
 #include "Main.hxx"
@@ -62,7 +67,7 @@ handle_reload_event(void)
 
 void initSigHandlers(void)
 {
-#ifndef WIN32
+#if SIGACTION
 	struct sigaction sa;
 
 	sa.sa_flags = 0;

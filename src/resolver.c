@@ -20,6 +20,9 @@
 #include "config.h"
 #include "resolver.h"
 
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
 #ifndef G_OS_WIN32
 #include <sys/socket.h>
 #include <netdb.h>

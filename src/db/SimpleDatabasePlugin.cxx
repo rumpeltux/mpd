@@ -32,6 +32,7 @@
 
 #include <sys/types.h>
 #include <errno.h>
+#include <stdlib.h>
 
 G_GNUC_CONST
 static inline GQuark
