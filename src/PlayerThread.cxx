@@ -35,6 +35,9 @@
 #include "GlobalEvents.hxx"
 
 #include <cmath>
+#ifdef NAN
+#  define nan(x) NAN
+#endif
 
 #include <glib.h>
 

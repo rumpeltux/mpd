@@ -25,6 +25,9 @@
 #include "Main.hxx"
 
 #include <cmath>
+#ifdef NAN
+#  define nanf(x) NAN
+#endif
 
 #include <assert.h>
 #include <stdio.h>

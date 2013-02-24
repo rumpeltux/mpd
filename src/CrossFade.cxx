@@ -24,6 +24,9 @@
 #include "tag.h"
 
 #include <cmath>
+#ifdef NAN
+#  define nan(x) NAN
+#endif
 
 #include <assert.h>
 #include <string.h>
