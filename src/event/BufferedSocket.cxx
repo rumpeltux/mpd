@@ -32,7 +32,7 @@ BufferedSocket::~BufferedSocket()
 		fifo_buffer_free(input);
 }
 
-BufferedSocket::ssize_t
+ssize_t
 BufferedSocket::DirectRead(void *data, size_t length)
 {
 	const auto nbytes = SocketMonitor::Read((char *)data, length);

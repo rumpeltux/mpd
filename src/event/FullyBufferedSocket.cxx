@@ -31,7 +31,7 @@
 #include <sys/socket.h>
 #endif
 
-FullyBufferedSocket::ssize_t
+ssize_t
 FullyBufferedSocket::DirectWrite(const void *data, size_t length)
 {
 	const auto nbytes = SocketMonitor::Write((const char *)data, length);

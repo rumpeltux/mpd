@@ -135,7 +135,7 @@ SocketMonitor::Close()
 	close_socket(Steal());
 }
 
-SocketMonitor::ssize_t
+ssize_t
 SocketMonitor::Read(void *data, size_t length)
 {
 	int flags = 0;
@@ -146,7 +146,7 @@ SocketMonitor::Read(void *data, size_t length)
 	return recv(Get(), (char *)data, length, flags);
 }
 
-SocketMonitor::ssize_t
+ssize_t
 SocketMonitor::Write(const void *data, size_t length)
 {
 	int flags = 0;
