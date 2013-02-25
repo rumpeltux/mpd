@@ -1,0 +1,25 @@
+From b2e90f9a4b07e90575734f403ce5ff5f5817b11b Mon Sep 17 00:00:00 2001
+From: Hagen Fritsch <fritsch+git@in.tum.de>
+Date: Mon, 25 Feb 2013 21:32:06 +0100
+Subject: [PATCH] use external gnu libiconv
+
+---
+ android-internal/config.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/android-internal/config.h b/android-internal/config.h
+index 67e69fe..418ee80 100644
+--- a/android-internal/config.h
++++ b/android-internal/config.h
+@@ -691,7 +691,7 @@
+ #define STDC_HEADERS 1
+ 
+ /* Using GNU libiconv */
+-#undef USE_LIBICONV_GNU
++#define USE_LIBICONV_GNU 1
+ 
+ /* Using a native implementation of iconv in a separate library */
+ #undef USE_LIBICONV_NATIVE
+-- 
+1.8.1.3
+

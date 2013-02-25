@@ -1,17 +1,9 @@
+Music Player Daemon (MPD) for Android
+=====================================
 
-		       Music Player Daemon (MPD)
-			http://www.musicpd.org
+This is a port of mpd, that allows compilation using the android ndk toolchain.
+There is no native audio output yet for android, but network output modules
+will work.
 
-A daemon for playing music of various formats.  Music is played through the 
-server's audio device.  The daemon stores info about all available music, 
-and this info can be easily searched and retrieved.  Player control, info
-retrieval, and playlist management can all be managed remotely.
-
-For basic installation information see the INSTALL file.
-
-MPD is released under the GNU General Public License version 2, which is
-distributed in the COPYING file.
-
-You should have received a copy of the GNU General Public License along with
-this program.  If not, see <http://www.gnu.org/licenses/>.
-
+You can use the compile-android.sh script to compile mpd and a couple of key
+dependencies. Be sure to adjust the NDK path at the top.
