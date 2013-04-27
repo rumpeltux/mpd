@@ -7,7 +7,7 @@ set -e
 MPD=$(realpath $(dirname $0))
 
 # Set up the standalone toolchain (you can skip it if you already have it)
-[ -d /tmp/ndk-$USER ] || $NDK/build/tools/make-standalone-toolchain.sh
+[ -d /tmp/ndk-$USER ] || $NDK/build/tools/make-standalone-toolchain.sh --system=linux-x86_64
 cd /tmp/ndk-$USER
 TC=/tmp/ndk-$USER/arm-linux-androideabi-4.6
 [ -d $TC ] || (
@@ -16,6 +16,7 @@ TC=/tmp/ndk-$USER/arm-linux-androideabi-4.6
 )
 
 export PATH=$TC/bin:$PATH
+export PKG_CONFIG_PATH=$TC/sysroot/usr/lib/pkgconfig/
 LIBDIR=$TC/sysroot/usr/lib
 
 CONFIG_SUB="cp -av /usr/share/misc/config.sub ."
@@ -109,7 +110,8 @@ echo "Compiling mpd"
     cd $MPD
     $CONFIGURE CFLAGS=-mandroid --build=x86_64-pc-linux-gnu \
         "GLIB_CFLAGS=-I$GLIBDIR -I$GLIBDIR/glib -I$GLIBDIR/android" \
-        "GLIB_LIBS=-L$GLIBDIR/libs/armeabi/ -lglib-2.0 -lgthread-2.0"
+        "GLIB_LIBS=-L$GLIBDIR/libs/armeabi/ -lglib-2.0 -lgthread-2.0" \
+        "OPUS_CFLAGS=-I$TC/sysroot/usr/include/opus"
     $MAKE
 )
 
