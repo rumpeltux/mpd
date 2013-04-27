@@ -63,7 +63,7 @@ static inline bool
 replay_gain_tuple_defined(const struct replay_gain_tuple *tuple)
 {
 #ifdef __cplusplus
-	return !isinf(tuple->gain);
+	return !std::isinf(tuple->gain);
 #else
 	return !isinf(tuple->gain);
 #endif

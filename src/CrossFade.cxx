@@ -87,7 +87,7 @@ static float mixramp_interpolate(char *ramp_list, float required_db)
 		}
 
 		/* If required db < any stored value, use the least. */
-		if (isnan(last_db))
+		if (std::isnan(last_db))
 			return secs;
 
 		/* Finally, interpolate linearly. */
@@ -118,13 +118,13 @@ unsigned cross_fade_calc(float duration, float total_time,
 
 	chunks_f = (float)audio_format_time_to_size(af) / (float)CHUNK_SIZE;
 
-	if (isnan(mixramp_delay) || !mixramp_start || !mixramp_prev_end) {
+	if (std::isnan(mixramp_delay) || !mixramp_start || !mixramp_prev_end) {
 		chunks = (chunks_f * duration + 0.5);
 	} else {
 		/* Calculate mixramp overlap. */
 		mixramp_overlap = mixramp_interpolate(mixramp_start, mixramp_db - replay_gain_db)
 		  + mixramp_interpolate(mixramp_prev_end, mixramp_db - replay_gain_prev_db);
-		if (!isnan(mixramp_overlap) &&
+		if (!std::isnan(mixramp_overlap) &&
 		    mixramp_delay <= mixramp_overlap) {
 			chunks = (chunks_f * (mixramp_overlap - mixramp_delay));
 			g_debug("will overlap %d chunks, %fs", chunks,

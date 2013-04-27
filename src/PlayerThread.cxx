@@ -763,7 +763,7 @@ play_next_chunk(struct player *player)
 						  other_chunk->tag);
 			other_chunk->tag = NULL;
 
-			if (isnan(pc->mixramp_delay_seconds)) {
+			if (std::isnan(pc->mixramp_delay_seconds)) {
 				chunk->mix_ratio = ((float)cross_fade_position)
 					     / player->cross_fade_chunks;
 			} else {
